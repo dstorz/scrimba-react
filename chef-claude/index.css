@@ -29,3 +29,30 @@ header > img {
 header > h1 {
     font-weight: 400;
 }
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.ingredient-form {
+    margin: 70px;
+}
+
+.ingredient-form > input {
+    /* border-style: 2px solid; */
+    border-style: solid;
+    border-radius: 5px;
+    margin-right: 10px;
+    height: 2.5rem;
+    padding-inline: 20px;
+    width: 400px;
+}
+
+.ingredient-form > button {
+    background-color: black;
+    color: #fafaf8;
+    border-radius: 8px;
+    height: 2.5rem;
+    padding-inline: 50px;
+}
