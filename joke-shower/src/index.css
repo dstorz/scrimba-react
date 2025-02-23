@@ -5,5 +5,24 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: whitesmoke;
+    background-color: rgb(146, 177, 224);
+    display: flex;
+    justify-content: center;
+}
+
+.joke {
+  background-color: #90b790;
+  border: 2px solid #90b790;
+  border-radius: 10px;
+  padding-block: 10px;
+  padding-inline: 30px;
+  margin: 20px;
+}
+
+.setup {
+  font-weight: 700;
+}
+
+.punchline {
+  font-style: italic;
 }

@@ -17,8 +17,16 @@
  * show the punchline?
  */
 
+import Joke from './components/Joke'
+
 export default function App() {
     return (
-        <></>
+        <>
+          <Joke setup="What do you get if you cross an elephant and a rhino?" punchline="Elephino" />
+          <Joke setup="What's a pirate's favorite letter?" punchline="Arrr." />
+          <Joke setup="How did the hacker escape from the police?" punchline="He just randomware." />
+          <Joke setup="Why was 6 afraid of 7?" punchline="Because 7 8 9." />
+          <Joke setup="Does Fungalore grant wishes?" punchline="No, Fungalore hears them only." />
+        </>
     )
 }
