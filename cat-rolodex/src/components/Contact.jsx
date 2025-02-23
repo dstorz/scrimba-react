@@ -1,13 +1,10 @@
-export default function Contact() {
-    const img="mr-whiskerson.png"
-    const name="Mr. Whiskerson"
-    const phone="(212) 555-1234"
-    const email="mr.whiskaz@catnap.meow"
+export default function Contact(props) {
+    const {img, name, phone, email} = props;
     return (
             <article className="contact-card">
                 <img 
                     src={img}
-                    alt="Photo of Mr. Whiskerson"
+                    alt={`Photo of ${name}`}
                 />
                 <h3>{name}</h3>
                 <div className="info-group">
