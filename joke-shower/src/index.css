@@ -20,9 +20,20 @@ body {
 }
 
 .setup {
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
 .punchline {
+  font-size: 1.2rem;
   font-style: italic;
+}
+
+.comment-list {
+  list-style: none;
+  text-align: right;
+}
+
+.comment-list li {
+  margin-bottom: 0.8rem;
 }
