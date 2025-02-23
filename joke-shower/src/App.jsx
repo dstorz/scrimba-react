@@ -18,53 +18,24 @@
  */
 
 import Joke from "./components/Joke";
+import jokeData from "./jokesData";
 
 export default function App() {
   const comments = ["Boo!", "Harharhar", "Dereshishishishi"];
 
   return (
     <>
-      <Joke
-        setup="What do you get if you cross an elephant and a rhino?"
-        punchline="Elephino"
-        upvotes={0}
-        downvotes={0}
-        comments={comments}
-      />
-      <Joke
-        setup="What's a pirate's favorite letter?"
-        punchline="Arrr."
-        upvotes={10}
-        downvotes={0}
-        comments={comments}
-      />
-      <Joke
-        setup="How did the hacker escape from the police?"
-        punchline="He just randomware."
-        upvotes={0}
-        downvotes={0}
-        comments={comments}
-      />
-      <Joke
-        setup="Why was 6 afraid of 7?"
-        punchline="Because 7 8 9."
-        upvotes={4}
-        downvotes={8}
-        comments={comments}
-      />
-      <Joke
-        setup="Does Fungalore grant wishes?"
-        punchline="No, Fungalore hears them only."
-        upvotes={0}
-        downvotes={0}
-        comments={comments}
-      />
-      <Joke
-        punchline="Feed fish man eat fish teach fish lifetime"
-        upvotes={0}
-        downvotes={0}
-        comments={comments}
-      />
+      {jokeData.map((joke) => {
+        return (
+          <Joke
+            setup={joke.setup}
+            punchline={joke.punchline}
+            upvotes={joke.upvotes}
+            downvotes={joke.downvotes}
+            comments={joke.comments}
+          />
+        );
+      })}
     </>
   );
 }
