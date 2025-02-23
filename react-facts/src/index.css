@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #444444;
+  background-color: #282d35;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,14 +29,9 @@ div#root {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  place-items: top;
   min-width: 320px;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 button {
@@ -74,6 +69,7 @@ button:focus-visible {
 .header {
   background-color: #21222a;
   padding: 10px 0;
+  margin: 0;
   display: flex;
   align-items: center;
 }
@@ -89,3 +85,56 @@ button:focus-visible {
   vertical-align: -50%;
   margin: 10px;
 }
+
+/* 
+Challenge: Place the gray react logo in the background
+
+Don't use an `img` element, but rather set it as the
+`background-image` of the `main` element.
+
+Hint: you'll need to use the following properties:
+- background-image: url(...)
+- background-repeat
+- background-position
+
+(Or the shorthand `background` property with values for all
+those other properties)
+*/
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url("/react.svg");
+  background-repeat: no-repeat;
+  background-position: 112% center;
+  background-size: 500px;
+  filter: grayscale(100%);
+  z-index: -1;
+}
+
+main {
+  margin: 27px;
+}
+
+main > h1 {
+  font-weight: 700;
+  font-size: 2.4rem;
+  padding-top: 30px;
+}
+
+.facts-list {
+  max-width: 340px;
+}
+.facts-list > li {
+  margin-block: 10px;
+}
+
+.facts-list > li::marker {
+  color: #61dafb;
+  font-size: 1.5rem;
+}
+
