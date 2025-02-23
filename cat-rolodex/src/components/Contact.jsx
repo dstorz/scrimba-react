@@ -1,24 +1,28 @@
 export default function Contact() {
+    const img="mr-whiskerson.png"
+    const name="Mr. Whiskerson"
+    const phone="(212) 555-1234"
+    const email="mr.whiskaz@catnap.meow"
     return (
             <article className="contact-card">
                 <img 
-                    src="mr-whiskerson.png"
+                    src={img}
                     alt="Photo of Mr. Whiskerson"
                 />
-                <h3>Mr. Whiskerson</h3>
+                <h3>{name}</h3>
                 <div className="info-group">
                     <img 
                         src="phone-icon.png" 
                         alt="phone icon" 
                     />
-                    <p>(212) 555-1234</p>
+                    <p>{phone}</p>
                 </div>
                 <div className="info-group">
                     <img 
                         src="mail-icon.png" 
                         alt="mail icon"
                     />
-                    <p>mr.whiskaz@catnap.meow</p>
+                    <p>{email}</p>
                 </div>
             </article>
     )
