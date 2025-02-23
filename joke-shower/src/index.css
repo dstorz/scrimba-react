@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: rgb(146, 177, 224);
+    background-color: rgb(196, 227, 255);
     display: flex;
     justify-content: center;
 }
@@ -13,7 +13,7 @@ body {
 .joke {
   background-color: #90b790;
   border: 2px solid #90b790;
-  border-radius: 10px;
+  border-radius: 30px;
   padding-block: 10px;
   padding-inline: 30px;
   margin: 20px;

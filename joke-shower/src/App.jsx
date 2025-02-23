@@ -27,6 +27,7 @@ export default function App() {
           <Joke setup="How did the hacker escape from the police?" punchline="He just randomware." />
           <Joke setup="Why was 6 afraid of 7?" punchline="Because 7 8 9." />
           <Joke setup="Does Fungalore grant wishes?" punchline="No, Fungalore hears them only." />
+          <Joke punchline="Feed fish man eat fish teach fish lifetime" />
         </>
     )
 }
