@@ -1,5 +1,4 @@
-export default function Contact(props) {
-    const {img, name, phone, email} = props;
+export default function Contact({img, name, phone, email}) {
     return (
             <article className="contact-card">
                 <img 
