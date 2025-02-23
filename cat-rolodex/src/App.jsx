@@ -1,35 +1,104 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/**
+ * Challenge:
+ * - Create a Contact component in another file
+ * - Move one of the contact card articles below into that file
+ * - import and render 4 instances of that contact card
+ *     - Think ahead: what's the problem with doing it this way?
+ */
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <div className="contacts">
+            <article className="contact-card">
+                <img 
+                    src="mr-whiskerson.png"
+                    alt="Photo of Mr. Whiskerson"
+                />
+                <h3>Mr. Whiskerson</h3>
+                <div className="info-group">
+                    <img 
+                        src="phone-icon.png" 
+                        alt="phone icon" 
+                    />
+                    <p>(212) 555-1234</p>
+                </div>
+                <div className="info-group">
+                    <img 
+                        src="mail-icon.png" 
+                        alt="mail icon"
+                    />
+                    <p>mr.whiskaz@catnap.meow</p>
+                </div>
+            </article>
+            
+            <article className="contact-card">
+                <img 
+                    src="fluffykins.png"
+                    alt="Photo of Fluffykins"
+                />
+                <h3>Fluffykins</h3>
+                <div className="info-group">
+                    <img 
+                        src="phone-icon.png" 
+                        alt="phone icon" 
+                    />
+                    <p>(212) 555-2345</p>
+                </div>
+                <div className="info-group">
+                    <img 
+                        src="mail-icon.png" 
+                        alt="mail icon"
+                    />
+                    <p>fluff@me.com</p>
+                </div>
+            </article>
+            
+            <article className="contact-card">
+                <img 
+                    src="felix.png"
+                    alt="Photo of Felix"
+                />
+                <h3>Felix</h3>
+                <div className="info-group">
+                    <img 
+                        src="phone-icon.png" 
+                        alt="phone icon" 
+                    />
+                    <p>(212) 555-4567</p>
+                </div>
+                <div className="info-group">
+                    <img 
+                        src="mail-icon.png" 
+                        alt="mail icon"
+                    />
+                    <p>thecat@hotmail.com</p>
+                </div>
+            </article>
+            
+            <article className="contact-card">
+                <img 
+                    src="pumpkin.png"
+                    alt="Photo of Pumpkin"
+                />
+                <h3>Pumpkin</h3>
+                <div className="info-group">
+                    <img 
+                        src="phone-icon.png" 
+                        alt="phone icon" 
+                    />
+                    <p>(0800) CAT KING</p>
+                </div>
+                <div className="info-group">
+                    <img 
+                        src="mail-icon.png" 
+                        alt="mail icon"
+                    />
+                    <p>pumpkin@scrimba.com</p>
+                </div>
+            </article>
+            
+        </div>
+    )
 }
 
 export default App
