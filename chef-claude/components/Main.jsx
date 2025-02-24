@@ -13,9 +13,8 @@ export default function Main() {
     const formData = new FormData(event.currentTarget);
     const newIngredient = formData.get("ingredient");
 
-    ingredients.push(newIngredient);
-    setIngredients(ingredients);
-    console.log(ingredients);
+    // ingredients.push(newIngredient); // DOES NOT WORK - don't modify the state variable directly
+    setIngredients([...ingredients, newIngredient]);
   }
 
   function handleClick() {
