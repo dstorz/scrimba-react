@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export default function App() {
   const [count, setCount] = useState(0);
+  const [isGoingOut, setIsGoingOut] = useState(false);
 
   function decrement() {
     setCount((prevCount) => prevCount - 1);
@@ -9,6 +10,10 @@ export default function App() {
 
   function increment() {
     setCount((prevCount) => prevCount + 1);
+  }
+
+  function toggleGoingOut() {
+    setIsGoingOut((prev) => !prev);
   }
 
   return (
@@ -30,6 +35,10 @@ export default function App() {
         >
           +
         </button>
+      </div>
+      <div>
+        <h1>Do I feel like going out tonight?</h1>
+        <button onClick={toggleGoingOut}>{isGoingOut ? "Yes" : "No"}</button>
       </div>
     </main>
   );
