@@ -15,6 +15,7 @@ export default function Main() {
 
     // ingredients.push(newIngredient); // DOES NOT WORK - don't modify the state variable directly
     setIngredients((prev) => [...prev, newIngredient]);
+    event.currentTarget.reset();
   }
 
   function handleClick() {
