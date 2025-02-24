@@ -1,20 +1,14 @@
-import React from "react";
+import { useState } from "react";
 
 export default function App() {
-  /**
-   * Challenge:
-   * Create state to track our count value (initial value is 0)
-   * Don't forget to replace the hard-coded "0" with your new state
-   */
-
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
 
   function decrement() {
-    setCount(count - 1);
+    setCount((prevCount) => prevCount - 1);
   }
 
   function increment() {
-    setCount(count + 1);
+    setCount((prevCount) => prevCount + 1);
   }
 
   return (
