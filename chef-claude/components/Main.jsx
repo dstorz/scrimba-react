@@ -7,14 +7,14 @@ export default function Main() {
     "Tomatoes",
   ]);
 
-  function suppressSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
     const newIngredient = formData.get("ingredient");
 
     // ingredients.push(newIngredient); // DOES NOT WORK - don't modify the state variable directly
-    setIngredients([...ingredients, newIngredient]);
+    setIngredients((prev) => [...prev, newIngredient]);
   }
 
   function handleClick() {
@@ -27,7 +27,7 @@ export default function Main() {
 
   return (
     <main>
-      <form className="ingredient-form" onSubmit={suppressSubmit}>
+      <form className="ingredient-form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="ingredient"
