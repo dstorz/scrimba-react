@@ -9,7 +9,7 @@ export default function App() {
     lastName: "Doe",
     phone: "+1 (212) 555-1212",
     email: "itsmyrealname@example.com",
-    isFavorite: false,
+    isFavorite: true,
   });
   /**
    * Challenge: Fill in the values in the markup
@@ -19,6 +19,12 @@ export default function App() {
 
   function toggleFavorite() {
     console.log("Toggle Favorite");
+    setContact((prev) => {
+      return {
+        ...prev,
+        isFavorite: !prev.isFavorite,
+      };
+    });
   }
 
   const contact_full_name = `${contact.firstName} ${contact.lastName}`;
@@ -34,10 +40,17 @@ export default function App() {
         <div className="info">
           <button
             onClick={toggleFavorite}
-            aria-pressed={false}
+            aria-pressed={contact.isFavorite}
+            aria-label={
+              contact.isFavorite ? "Remove from favorites" : "Add to favorites"
+            }
             className="favorite-button"
           >
-            <img src={starEmpty} alt="empty star icon" className="favorite" />
+            <img
+              src={contact.isFavorite ? starFilled : starEmpty}
+              alt={`${contact.isFavorite ? "filled" : "empty"} star icon`}
+              className="favorite"
+            />
           </button>
           <h2 className="name">{contact_full_name}</h2>
           <p className="contact">{contact.phone}</p>
