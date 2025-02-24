@@ -8,6 +8,9 @@ export default function Main() {
   ]);
 
   function handleSubmit(event) {
+    /* Imperative way of handling form submission. Meant to be given to the onSubmit attribute
+      of the form.
+    */
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -16,6 +19,15 @@ export default function Main() {
     // ingredients.push(newIngredient); // DOES NOT WORK - don't modify the state variable directly
     setIngredients((prev) => [...prev, newIngredient]);
     event.currentTarget.reset();
+  }
+
+  function addIngredient(formData) {
+    /*
+      Declarative way to access form data. Meant to be used in the action attribute of the form.
+      Automatically suppresses page reload and resets the form after.
+    */
+    const newIngredient = formData.get("ingredient");
+    setIngredients((prev) => [...prev, newIngredient]);
   }
 
   function handleClick() {
@@ -28,7 +40,7 @@ export default function Main() {
 
   return (
     <main>
-      <form className="ingredient-form" onSubmit={handleSubmit}>
+      <form action={addIngredient} className="ingredient-form">
         <input
           type="text"
           name="ingredient"
