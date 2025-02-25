@@ -1,8 +1,6 @@
-//function makeComment(comment) {
-function Comment({ message }) {
-  // This is very similar to a component function, but will not work as
-  // a component because it accepts a string as its argument
+import { useState } from "react";
 
+function Comment({ message }) {
   /*
   I wanted to do this with a function instead of an inline
   anonymous function for clarity, but looking at how close it is to a component,
@@ -25,10 +23,19 @@ export default function Joke({
   downvotes,
   comments,
 }) {
+  const [isShown, setIsShown] = useState(false);
+
+  function togglePunchline() {
+    setIsShown((prev) => !prev);
+  }
+
   return (
     <div className="joke">
       {setup && <p className="setup">{setup}</p>}
-      <p className="punchline">{punchline}</p>
+      <button onClick={togglePunchline}>
+        {isShown ? "Hide" : "Show"} Punchline
+      </button>
+      {isShown && <p className="punchline">{punchline}</p>}
       <div>
         👍{upvotes} 👎{downvotes}
       </div>
