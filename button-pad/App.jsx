@@ -10,9 +10,21 @@ export default function App() {
     <Pad key={pad.id} color={pad.color} on={pad.on} />
   ));
 
+  function turnAllOff() {
+    setPads((prev) => {
+      return prev.map((pad) => ({
+        ...pad,
+        on: false,
+      }));
+    });
+  }
+
   return (
     <main>
       <div className="pad-container">{padElements}</div>
+      <button onClick={turnAllOff} className="on">
+        Turn off all pads
+      </button>
     </main>
   );
 }
