@@ -5,12 +5,13 @@ import ClaudeRecipe from "./ClaudeRecipe";
 import { getRecipeFromMistral } from "../ai";
 
 export default function Main() {
-  const [ingredients, setIngredients] = useState([
-    "all the main spices",
-    "pasta",
-    "ground beef",
-    "tomato paste",
-  ]);
+  // const [ingredients, setIngredients] = useState([
+  //   "all the main spices",
+  //   "pasta",
+  //   "ground beef",
+  //   "tomato paste",
+  // ]);
+  const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState(undefined);
 
   function handleSubmit(event) {
@@ -36,8 +37,9 @@ export default function Main() {
     setIngredients((prev) => [...prev, newIngredient]);
   }
 
-  function getRecipe() {
-    setRecipe(getRecipeFromMistral(ingredients));
+  async function getRecipe() {
+    const recipeMarkdown = await getRecipeFromMistral(ingredients);
+    setRecipe(recipeMarkdown);
   }
 
   return (
