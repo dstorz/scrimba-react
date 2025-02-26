@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import IngredientList from "./IngredientList";
 import ClaudeRecipe from "./ClaudeRecipe";
+import { getRecipeFromMistral } from "../ai";
 
 export default function Main() {
   const [ingredients, setIngredients] = useState([
@@ -10,29 +11,7 @@ export default function Main() {
     "ground beef",
     "tomato paste",
   ]);
-  const [recipeShown, setRecipeShown] = useState(false);
-
-  /**
-   * Challenge: clean up our code!
-   * Let's make a couple new components to make things a
-   * little cleaner. (Notice: I'm not suggesting what we
-   * have now is bad or wrong. I'm mostly finding an excuse
-   * to get in some hands-on practice 🙂)
-   *
-   * 1. Move the entire recipe <section> into its own
-   *    ClaudeRecipe component
-   * 2. Move the list of ingredients <section> into its
-   *    own IngredientsList component.
-   *
-   * While you're considering how to structure things, consider
-   * where state is, think about if it makes sense or not to
-   * move it somewhere else, how you'll communicate between
-   * the parent/child components, etc.
-   *
-   * The app should function as it currently does when you're
-   * done, so there will likely be some extra work to be done
-   * beyond what I've listed above.
-   */
+  const [recipe, setRecipe] = useState(undefined);
 
   function handleSubmit(event) {
     /* Imperative way of handling form submission. Meant to be given to the onSubmit attribute
@@ -57,8 +36,8 @@ export default function Main() {
     setIngredients((prev) => [...prev, newIngredient]);
   }
 
-  function toggleRecipeShown() {
-    setRecipeShown((prev) => !prev);
+  function getRecipe() {
+    setRecipe(getRecipeFromMistral(ingredients));
   }
 
   return (
@@ -77,10 +56,10 @@ export default function Main() {
       {ingredients.length > 0 && (
         <IngredientList
           ingredients={ingredients}
-          toggleRecipeShown={toggleRecipeShown}
+          toggleRecipeShown={getRecipe}
         />
       )}
-      {recipeShown && <ClaudeRecipe />}
+      {recipe ? <ClaudeRecipe recipe={recipe} /> : null}
     </main>
   );
 }
