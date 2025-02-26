@@ -1,15 +1,9 @@
 import { useState } from "react";
 
-export default function Pad({ color, on: initOn }) {
-  const [on, setOn] = useState(initOn);
-
-  function toggle() {
-    setOn((prev) => !prev);
-  }
-
+export default function Pad({ id, color, on, handleClick }) {
   return (
     <button
-      onClick={toggle}
+      onClick={() => handleClick(id)}
       style={{ backgroundColor: color }}
       className={on ? "on" : undefined} // React recommends using undefined instead of null, but both work
     ></button>

@@ -6,10 +6,6 @@ import Pad from "./Pad";
 export default function App() {
   const [pads, setPads] = useState(padsData);
 
-  const padElements = pads.map((pad) => (
-    <Pad key={pad.id} color={pad.color} on={pad.on} />
-  ));
-
   function turnAllOff() {
     setPads((prev) => {
       return prev.map((pad) => ({
@@ -18,6 +14,25 @@ export default function App() {
       }));
     });
   }
+
+  function toggle(id) {
+    setPads((prev) =>
+      prev.map((pad) => ({
+        ...pad,
+        on: pad.id === id ? !pad.on : pad.on,
+      }))
+    );
+  }
+
+  const padElements = pads.map((pad) => (
+    <Pad
+      key={pad.id}
+      id={pad.id}
+      color={pad.color}
+      on={pad.on}
+      handleClick={toggle}
+    />
+  ));
 
   return (
     <main>
