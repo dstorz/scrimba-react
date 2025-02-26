@@ -8,10 +8,14 @@ export default function App() {
 
   function turnAllOff() {
     setPads((prev) => {
-      return prev.map((pad) => ({
-        ...pad,
-        on: false,
-      }));
+      return prev.map((pad) =>
+        // one liner alt
+        // pad.id === id ? {...pad, on: !pad.on} : pad
+        ({
+          ...pad,
+          on: false,
+        })
+      );
     });
   }
 
