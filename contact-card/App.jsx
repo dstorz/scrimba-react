@@ -33,7 +33,7 @@ export default function App() {
           alt={`User profile picture of ${contact_full_name}`}
         />
         <div className="info">
-          <Star isFilled={contact.isFavorite} />
+          <Star isFilled={contact.isFavorite} handleClick={toggleFavorite} />
           <h2 className="name">{contact_full_name}</h2>
           <p className="contact">{contact.phone}</p>
           <p className="contact">{contact.email}</p>
