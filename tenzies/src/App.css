@@ -40,3 +40,38 @@
 .read-the-docs {
   color: #888;
 }
+
+header {
+  max-width: 20rem;
+  margin-bottom: 2rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dice-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 3rem);
+  grid-template-rows: repeat(2, 3rem);
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.die {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 2px solid white;
+  border-radius: 6px;
+}
+
+.die-locked {
+  background-color: orange;
+}
