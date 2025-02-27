@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Dice from "./components/Dice";
@@ -7,6 +7,7 @@ function App() {
   function randomValue() {
     return Math.floor(Math.random() * 6) + 1;
   }
+
   const [dice, setDice] = useState([
     { value: randomValue(), lock: false },
     { value: randomValue(), lock: false },
@@ -19,6 +20,18 @@ function App() {
     { value: randomValue(), lock: false },
     { value: randomValue(), lock: false },
   ]);
+  const [gameWon, setGameWon] = useState(false);
+
+  useEffect(() => {
+    const firstDieVal = dice[0].value;
+    const allSame = dice.reduce(
+      (acc, die) => acc && die.value === firstDieVal,
+      true
+    );
+    if (allSame) {
+      setGameWon(true);
+    }
+  }, [dice]);
 
   function handleClick(id) {
     setDice((prev) =>
@@ -52,6 +65,7 @@ function App() {
   return (
     <>
       <Header />
+      {gameWon && <h2>You win!</h2>}
       <main>
         <section className="dice-grid">{diceElements}</section>
         <button onClick={rollDice}>Roll</button>
