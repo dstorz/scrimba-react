@@ -4,17 +4,20 @@ import Header from "./components/Header";
 import Dice from "./components/Dice";
 
 function App() {
+  function randomValue() {
+    return Math.floor(Math.random() * 6) + 1;
+  }
   const [dice, setDice] = useState([
-    { value: 1, lock: false },
-    { value: 2, lock: false },
-    { value: 3, lock: false },
-    { value: 4, lock: false },
-    { value: 5, lock: false },
-    { value: 6, lock: false },
-    { value: 1, lock: false },
-    { value: 2, lock: false },
-    { value: 3, lock: false },
-    { value: 4, lock: false },
+    { value: randomValue(), lock: false },
+    { value: randomValue(), lock: false },
+    { value: randomValue(), lock: false },
+    { value: randomValue(), lock: false },
+    { value: randomValue(), lock: false },
+    { value: randomValue(), lock: false },
+    { value: randomValue(), lock: false },
+    { value: randomValue(), lock: false },
+    { value: randomValue(), lock: false },
+    { value: randomValue(), lock: false },
   ]);
 
   function handleClick(id) {
@@ -31,7 +34,7 @@ function App() {
       return prev.map((die) => ({
         // randomize the dice value
         ...die,
-        value: die.lock ? die.value : Math.floor(Math.random() * 6) + 1,
+        value: die.lock ? die.value : randomValue(),
       }));
     });
   }
