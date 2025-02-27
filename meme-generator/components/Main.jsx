@@ -34,7 +34,8 @@ export default function Main() {
   }
 
   function getMeme() {
-    const randomIdx = Math.floor(Math.random() * (memeSet.length - 1));
+    // Math.random() = [0, 1) so this will never evaluate to memeSet.length
+    const randomIdx = Math.floor(Math.random() * memeSet.length);
     setMeme((prev) => ({
       ...prev,
       image: memeSet[randomIdx].url,
