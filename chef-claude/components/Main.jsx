@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import IngredientList from "./IngredientList";
 import ClaudeRecipe from "./ClaudeRecipe";
@@ -12,7 +12,14 @@ export default function Main() {
   //   "tomato paste",
   // ]);
   const [ingredients, setIngredients] = useState([]);
-  const [recipe, setRecipe] = useState(undefined);
+  const [recipe, setRecipe] = useState("");
+  const recipeSection = useRef(null);
+
+  useEffect(() => {
+    if (recipe !== "" && recipeSection.current !== null) {
+      recipeSection.current.scrollIntoView();
+    }
+  }, [recipe]);
 
   function handleSubmit(event) {
     /* Imperative way of handling form submission. Meant to be given to the onSubmit attribute
@@ -57,11 +64,12 @@ export default function Main() {
       </form>
       {ingredients.length > 0 && (
         <IngredientList
+          ref={recipeSection}
           ingredients={ingredients}
           toggleRecipeShown={getRecipe}
         />
       )}
-      {recipe ? <ClaudeRecipe recipe={recipe} /> : null}
+      {recipe !== "" ? <ClaudeRecipe recipe={recipe} /> : null}
     </main>
   );
 }

@@ -1,4 +1,8 @@
-export default function IngredientList({ ingredients, toggleRecipeShown }) {
+export default function IngredientList({
+  ingredients,
+  toggleRecipeShown,
+  ref,
+}) {
   const ingredientElements = ingredients.map((item) => (
     <li key={item}>{item}</li>
   ));
@@ -11,7 +15,7 @@ export default function IngredientList({ ingredients, toggleRecipeShown }) {
       </ul>
       {ingredients.length > 3 && (
         <div className="get-recipe-container">
-          <div>
+          <div ref={ref}>
             <h3>Ready for a recipe?</h3>
             <p>Generate a recipe from your list of ingredients.</p>
           </div>
