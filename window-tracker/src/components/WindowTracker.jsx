@@ -1,3 +1,3 @@
 export default function WindowTracker() {
-  return <h1>Window Tracker component</h1>;
+  return <h1>Window Width: {window.innerWidth}px</h1>;
 }
