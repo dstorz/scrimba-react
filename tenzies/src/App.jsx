@@ -52,6 +52,17 @@ function App() {
     });
   }
 
+  function resetGame() {
+    setGameWon(false);
+    setDice((prev) =>
+      prev.map((die) => ({
+        ...die,
+        value: randomValue(),
+        lock: false,
+      }))
+    );
+  }
+
   const diceElements = dice.map((die, idx) => (
     <Dice
       key={idx}
@@ -71,6 +82,7 @@ function App() {
         <button onClick={rollDice} disabled={gameWon}>
           Roll
         </button>
+        {gameWon && <button onClick={resetGame}>Play Again</button>}
       </main>
     </>
   );
