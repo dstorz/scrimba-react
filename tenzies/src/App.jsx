@@ -19,9 +19,9 @@ function App() {
 
   function handleClick(id) {
     setDice((prev) =>
-      prev.map((die) => ({
+      prev.map((die, idx) => ({
         ...die,
-        lock: !die.lock,
+        lock: idx === id ? !die.lock : die.lock,
       }))
     );
   }
@@ -29,6 +29,7 @@ function App() {
   const diceElements = dice.map((die, idx) => (
     <Dice
       key={idx}
+      id={idx}
       value={die.value}
       handleClick={handleClick}
       lock={die.lock}
