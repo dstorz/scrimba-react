@@ -26,6 +26,16 @@ function App() {
     );
   }
 
+  function rollDice() {
+    setDice((prev) => {
+      return prev.map((die) => ({
+        // randomize the dice value
+        ...die,
+        value: die.lock ? die.value : Math.floor(Math.random() * 6) + 1,
+      }));
+    });
+  }
+
   const diceElements = dice.map((die, idx) => (
     <Dice
       key={idx}
@@ -41,7 +51,7 @@ function App() {
       <Header />
       <main>
         <section className="dice-grid">{diceElements}</section>
-        <button>Roll</button>
+        <button onClick={rollDice}>Roll</button>
       </main>
     </>
   );
