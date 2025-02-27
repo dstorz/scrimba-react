@@ -68,7 +68,9 @@ function App() {
       {gameWon && <h2>You win!</h2>}
       <main>
         <section className="dice-grid">{diceElements}</section>
-        <button onClick={rollDice}>Roll</button>
+        <button onClick={rollDice} disabled={gameWon}>
+          Roll
+        </button>
       </main>
     </>
   );
