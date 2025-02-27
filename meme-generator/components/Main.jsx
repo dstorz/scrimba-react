@@ -13,14 +13,10 @@ export default function Main() {
     image: "http://i.imgflip.com/1bij.jpg",
   });
 
-  function changeTopText(event) {
+  function handleChange(event) {
+    const { value, name } = event.currentTarget;
     setMeme((prev) => {
-      return { ...prev, topText: event.target.value };
-    });
-  }
-  function changeBottomText(event) {
-    setMeme((prev) => {
-      return { ...prev, bottomText: event.target.value };
+      return { ...prev, [name]: value };
     });
   }
 
@@ -33,7 +29,8 @@ export default function Main() {
             type="text"
             placeholder="One does not simply"
             name="topText"
-            onChange={changeTopText}
+            onChange={handleChange}
+            value={meme.topText}
           />
         </label>
 
@@ -43,7 +40,8 @@ export default function Main() {
             type="text"
             placeholder="Walk into Mordor"
             name="bottomText"
-            onChange={changeBottomText}
+            onChange={handleChange}
+            value={meme.bottomText}
           />
         </label>
         <button>Get a new meme image 🖼</button>
