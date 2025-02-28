@@ -17,18 +17,9 @@ const initDice = new Array(10).fill(0).map(() => ({
 
 function App() {
   const [dice, setDice] = useState(initDice);
-  const [gameWon, setGameWon] = useState(false);
 
-  useEffect(() => {
-    const firstDieVal = dice[0].value;
-    const allSame = dice.reduce(
-      (acc, die) => acc && die.value === firstDieVal,
-      true
-    );
-    if (allSame) {
-      setGameWon(true);
-    }
-  }, [dice]);
+  const firstDie = dice[0].value;
+  const gameWon = dice.reduce((acc, die) => acc && die.value == firstDie, true);
 
   function handleClick(id) {
     setDice((prev) =>
