@@ -3,23 +3,17 @@ import "./App.css";
 import Header from "./components/Header";
 import Dice from "./components/Dice";
 
-function App() {
-  function randomValue() {
-    return Math.floor(Math.random() * 6) + 1;
-  }
+function randomValue() {
+  return Math.floor(Math.random() * 6) + 1;
+}
 
-  const [dice, setDice] = useState([
-    { value: randomValue(), lock: false },
-    { value: randomValue(), lock: false },
-    { value: randomValue(), lock: false },
-    { value: randomValue(), lock: false },
-    { value: randomValue(), lock: false },
-    { value: randomValue(), lock: false },
-    { value: randomValue(), lock: false },
-    { value: randomValue(), lock: false },
-    { value: randomValue(), lock: false },
-    { value: randomValue(), lock: false },
-  ]);
+const initDice = new Array(10).fill(0).map(() => ({
+  value: randomValue(),
+  lock: false,
+}));
+
+function App() {
+  const [dice, setDice] = useState(initDice);
   const [gameWon, setGameWon] = useState(false);
 
   useEffect(() => {
