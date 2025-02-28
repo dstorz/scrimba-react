@@ -75,9 +75,9 @@ function App() {
 
   return (
     <>
-      <Header />
-      {gameWon && <h2>You win!</h2>}
       <main>
+        <Header />
+        {gameWon && <h2>You win!</h2>}
         <section className="dice-grid">{diceElements}</section>
         <button onClick={rollDice} disabled={gameWon}>
           Roll
