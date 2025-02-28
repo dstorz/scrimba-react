@@ -32,10 +32,7 @@ function App() {
 
   function handleClick(id) {
     setDice((prev) =>
-      prev.map((die) => ({
-        ...die,
-        lock: die.id === id ? !die.lock : die.lock,
-      }))
+      prev.map((die) => (die.id === id ? { ...die, lock: !die.lock } : die))
     );
   }
 
