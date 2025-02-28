@@ -38,11 +38,9 @@ function App() {
 
   function rollDice() {
     setDice((prev) => {
-      return prev.map((die) => ({
-        // randomize the dice value
-        ...die,
-        value: die.lock ? die.value : randomValue(),
-      }));
+      return prev.map((die) =>
+        die.lock ? die : { ...die, value: randomValue() }
+      );
     });
   }
 
