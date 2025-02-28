@@ -19,7 +19,8 @@ function App() {
   const [dice, setDice] = useState(initDice);
 
   const firstDie = dice[0].value;
-  const gameWon = dice.reduce((acc, die) => acc && die.value == firstDie, true);
+  //const gameWon = dice.reduce((acc, die) => acc && die.value == firstDie, true);
+  const gameWon = dice.every((die) => die.value == dice[0].value);
 
   function handleClick(id) {
     setDice((prev) =>
