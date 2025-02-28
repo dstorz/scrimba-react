@@ -3,6 +3,8 @@ import "./App.css";
 import Header from "./components/Header";
 import Dice from "./components/Dice";
 
+import { nanoid } from "nanoid";
+
 function randomValue() {
   return Math.floor(Math.random() * 6) + 1;
 }
@@ -10,6 +12,7 @@ function randomValue() {
 const initDice = new Array(10).fill(0).map(() => ({
   value: randomValue(),
   lock: false,
+  id: nanoid(),
 }));
 
 function App() {
@@ -29,9 +32,9 @@ function App() {
 
   function handleClick(id) {
     setDice((prev) =>
-      prev.map((die, idx) => ({
+      prev.map((die) => ({
         ...die,
-        lock: idx === id ? !die.lock : die.lock,
+        lock: die.id === id ? !die.lock : die.lock,
       }))
     );
   }
@@ -59,8 +62,8 @@ function App() {
 
   const diceElements = dice.map((die, idx) => (
     <Dice
-      key={idx}
-      id={idx}
+      key={die.id}
+      id={die.id}
       value={die.value}
       handleClick={handleClick}
       lock={die.lock}
