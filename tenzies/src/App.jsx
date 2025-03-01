@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Dice from "./components/Dice";
@@ -20,10 +20,15 @@ function App() {
     return initDice;
   }
   const [dice, setDice] = useState(makeInitDice);
+  const replayButton = useRef(null);
 
   //const firstDie = dice[0].value;
   //const gameWon = dice.reduce((acc, die) => acc && die.value == firstDie, true);
   const gameWon = dice.every((die) => die.value == dice[0].value);
+
+  useEffect(() => {
+    if (gameWon && replayButton.current !== null) replayButton.current.focus();
+  }, [gameWon]);
 
   function handleClick(id) {
     setDice((prev) =>
@@ -67,13 +72,20 @@ function App() {
           <>
             <h2>You win!</h2>
             <Confetti />
+            <div className="sr-only" aria-live="polite">
+              <p>Congratulations, you've won!</p>
+            </div>
           </>
         )}
         <section className="dice-grid">{diceElements}</section>
         <button onClick={rollDice} disabled={gameWon}>
           Roll
         </button>
-        {gameWon && <button onClick={resetGame}>Play Again</button>}
+        {gameWon && (
+          <button onClick={resetGame} ref={replayButton}>
+            Play Again
+          </button>
+        )}
       </main>
     </>
   );
