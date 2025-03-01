@@ -10,16 +10,18 @@ function randomValue() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
-const initDice = new Array(10).fill(0).map(() => ({
-  value: randomValue(),
-  lock: false,
-  id: nanoid(),
-}));
-
 function App() {
-  const [dice, setDice] = useState(initDice);
+  function makeInitDice() {
+    const initDice = new Array(10).fill(0).map(() => ({
+      value: randomValue(),
+      lock: false,
+      id: nanoid(),
+    }));
+    return initDice;
+  }
+  const [dice, setDice] = useState(makeInitDice);
 
-  const firstDie = dice[0].value;
+  //const firstDie = dice[0].value;
   //const gameWon = dice.reduce((acc, die) => acc && die.value == firstDie, true);
   const gameWon = dice.every((die) => die.value == dice[0].value);
 
