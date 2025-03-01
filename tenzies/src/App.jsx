@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Dice from "./components/Dice";
+import Confetti from "react-confetti";
 
 import { nanoid } from "nanoid";
 
@@ -61,7 +62,12 @@ function App() {
     <>
       <main>
         <Header />
-        {gameWon && <h2>You win!</h2>}
+        {gameWon && (
+          <>
+            <h2>You win!</h2>
+            <Confetti />
+          </>
+        )}
         <section className="dice-grid">{diceElements}</section>
         <button onClick={rollDice} disabled={gameWon}>
           Roll
