@@ -38,7 +38,6 @@ function App() {
   }
 
   function resetGame() {
-    setGameWon(false);
     setDice((prev) =>
       prev.map((die) => ({
         ...die,
