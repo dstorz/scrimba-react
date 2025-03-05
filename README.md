@@ -6,7 +6,7 @@ This repo contains all the various big and small projects made during the [Scrim
 
 #### Tenzies
 
-Roll dice and try to get 10 matching numbers. Hosted on [GitHub pages.](https://goluxas.github.io/scrimba-react/)
+Roll dice and try to get 10 matching numbers. Hosted on [GitHub pages.](https://dstorz.github.io/scrimba-react/)
 
 #### Chef Claude
 
